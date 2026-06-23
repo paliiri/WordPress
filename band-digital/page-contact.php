@@ -1,0 +1,83 @@
+<?php get_header(); ?>
+
+<!--MAIN BANNER AREA -->
+<div class="page-banner-area page-contact" id="page-banner">
+  <div class="overlay dark-overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+        <div class="banner-content content-padding">
+          <h1 class="text-white">Давайте обсудим работу над&nbsp;вашим проектом</h1>
+          <p>Напишите нам и вам ответит проектный менеджер</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  Contact START  -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-sm-12 col-md-12">
+        <div class="mb-5">
+          <h2 class="mb-2">Напишите нам</h2>
+          <p>
+            Обычно, мы видим заявку сразу, а перезваниваем или пишем в ответ в течение часа. Иногда ответ может
+            занять до одного дня.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7 col-sm-12">
+        <!-- <?php echo do_shortcode('[contact-form-7 id="3f96941" title="Виджет формы"]') ?> -->
+        <form class="contact__form" method="post" action="<?php echo admin_url('admin-ajax.php') ?>">
+          <input type="hidden" name="action" value="my_action">
+          <div class="row">
+            <div class="col-12">
+              <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                Ваше сообщение отправлено.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input name="name" type="text" class="form-control" placeholder="Имя" required />
+            </div>
+            <div class="col-md-6 form-group">
+              <input name="email" type="email" class="form-control" placeholder="Email" required />
+            </div>
+            <div class="col-md-12 form-group">
+              <input name="phone" type="text" class="form-control" placeholder="Телефон" required />
+            </div>
+            <div class="col-12 form-group">
+              <textarea name="message" class="form-control" rows="6" placeholder="Сообщение" required></textarea>
+            </div>
+            <div class="col-12 mt-4">
+              <input name="submit" type="submit" class="btn btn-hero btn-circled" value="Отправить" />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-5 pl-4 mt-4 mt-lg-0">
+        <h4>Адрес офиса</h4>
+        <address class="mb-3"><?php the_field('address', get_the_ID()) ?></address>
+        <h4>Телефон</h4>
+        <p class="mb-3"> <?php the_field('phone', get_the_ID()) ?> </p>
+        <h4>E-Mail</h4>
+        <p class="mb-3">
+          <?php the_field('email', get_the_ID()) ?>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--  CONTACT END  -->
+
+<!--  Google Map START  -->
+<?php the_content(); ?>
+<!--  Google Map END  -->
+
+<?php get_footer(); ?>
